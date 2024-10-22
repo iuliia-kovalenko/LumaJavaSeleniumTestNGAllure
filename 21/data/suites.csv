@@ -1,0 +1,4 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"unknown","Tue Oct 22 21:43:42 GMT 2024","Tue Oct 22 21:43:42 GMT 2024","1","Surefire suite","Surefire test","TestTest","TestTest","testFail","testFail",""
+"passed","Tue Oct 22 21:43:43 GMT 2024","Tue Oct 22 21:43:44 GMT 2024","1313","Surefire suite","Surefire test","com.lumatest.test.NavigationTest","com.lumatest.test.NavigationTest","testOpenBaseURL","testOpenBaseURL","Verify that base URL and the page title matches the expected results."
+"passed","Tue Oct 22 21:43:44 GMT 2024","Tue Oct 22 21:43:44 GMT 2024","0","Surefire suite","Surefire test","TestTest","TestTest","testPass","testPass",""
