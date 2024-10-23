@@ -10,7 +10,10 @@ import org.testng.annotations.Test;
 
 public class NavigationTest extends BaseTest {
 
-    @Test(description = "TC-01 Open Base URL")
+    @Test(
+            description = "TC-01 Open Base URL",
+            groups = {"Smoke", "Regression"}
+    )
     @Story("Navigation")
     @Description("Verify that base URL and the page title matches the expected results.")
     @Severity(SeverityLevel.BLOCKER)
@@ -35,8 +38,11 @@ public class NavigationTest extends BaseTest {
         Assert.assertEquals(actualTitle, expectedTitle);
     }
 
-    @Test(description = "TC-02 Verify that all tabs with dropdown menu of Navigation menu work correctly as expected",
-            dataProvider = "navigationDataDropDown", dataProviderClass = TestData.class)
+    @Test(
+            groups = {"Smoke", "Regression"},
+            description = "TC-02 Verify that all tabs with dropdown menu of Navigation menu work correctly as expected",
+            dataProvider = "navigationDataDropDown", dataProviderClass = TestData.class
+    )
     @Story("Navigation main menu")
     @Description("TC-02 Verify that all tabs of Navigation menu work correctly as expected")
     @Severity(SeverityLevel.CRITICAL)
@@ -62,8 +68,11 @@ public class NavigationTest extends BaseTest {
         Assert.assertEquals(actualTitle, expectedTitle);
     }
 
-    @Test(description = "TC-03 Verify that all tabs without dropdown menu work correctly as expected",
-            dataProvider = "navigationData", dataProviderClass = TestData.class)
+    @Test(
+            groups = {"Smoke", "Regression"},
+            description = "TC-03 Verify that all tabs without dropdown menu work correctly as expected",
+            dataProvider = "navigationData", dataProviderClass = TestData.class
+    )
     @Story("Navigation main menu")
     @Description("TC-03 Verify that all tabs without dropdown menu work correctly as expected")
     @Severity(SeverityLevel.CRITICAL)
@@ -86,8 +95,11 @@ public class NavigationTest extends BaseTest {
         Assert.assertEquals(actualTitle, expectedTitle);
     }
 
-    @Test(description = "TC-04 Verify that all tabs of Desktop dropdown menu work correctly as expected",
-            dataProvider = "navigationDesktop", dataProviderClass = TestData.class)
+    @Test(
+            groups = {"Smoke", "Regression"},
+            description = "TC-04 Verify that all tabs of Desktop dropdown menu work correctly as expected",
+            dataProvider = "navigationDesktop", dataProviderClass = TestData.class
+    )
     @Story("Navigation Desktop subMenu's")
     @Description("C-04 Verify that all tabs of Desktop dropdown menu work correctly as expected")
     @Severity(SeverityLevel.CRITICAL)
