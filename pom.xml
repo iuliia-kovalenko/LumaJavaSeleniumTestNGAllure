@@ -38,9 +38,17 @@
 
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-chrome-driver</artifactId>
+            <artifactId>selenium-java</artifactId>
             <version>4.25.0</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>5.9.2</version>
+        </dependency>
+
 
         <dependency>
             <groupId>io.qameta.allure</groupId>
@@ -86,7 +94,6 @@
                 <version>3.13.0</version>
                 <configuration>
                     <encoding>${project.build.sourceEncoding}</encoding>
-                    <release>8</release>
                 </configuration>
             </plugin>
 
