@@ -20,7 +20,7 @@ public abstract class BaseTest {
     @BeforeSuite
     protected void setupWebDriverManager() {
         WebDriverManager.chromedriver().setup();
-        WebDriverManager.firefoxdriver().setup();
+//        WebDriverManager.firefoxdriver().setup();
 //        WebDriverManager.edgedriver().setup();
 //        WebDriverManager.operadriver().setup();
 //        WebDriverManager.chromiumdriver().setup();
@@ -31,30 +31,30 @@ public abstract class BaseTest {
     @BeforeMethod()
     protected void setupDriver(@Optional("chrome") String browser, ITestResult result) {
         Reporter.log("______________________________________________________________________");
-        Reporter.log("RUN " + result.getMethod().getMethodName(), false);
+        Reporter.log("RUN " + result.getMethod().getMethodName(), true);
 
         this.driver = DriverUtils.createDriver(browser, this.driver);
 
         if (getDriver() == null) {
-            Reporter.log("ERROR: Unknown parameter 'browser' - '" + browser + "'.");
+            Reporter.log("ERROR: Unknown parameter 'browser' - '" + browser + "'.", true);
 
             System.exit(1);
         }
 
-        Reporter.log("INFO: " + browser.toUpperCase() + " driver created.");
+        Reporter.log("INFO: " + browser.toUpperCase() + " driver created.", true);
     }
 
     @Parameters("browser")
     @AfterMethod(alwaysRun = true)
     protected void tearDown(@Optional("chrome") String browser, ITestResult result) {
-        Reporter.log(result.getMethod().getMethodName() + ": " + ReportUtils.getTestStatus(result), false);
+        Reporter.log(result.getMethod().getMethodName() + ": " + ReportUtils.getTestStatus(result), true);
         if (this.driver != null) {
             getDriver().quit();
             Reporter.log("INFO: " + browser.toUpperCase() + " driver closed.");
 
             this.driver = null;
         } else {
-            Reporter.log("INFO: Driver is null.", false);
+            Reporter.log("INFO: Driver is null.", true);
         }
     }
 
