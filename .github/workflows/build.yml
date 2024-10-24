@@ -96,3 +96,5 @@ jobs:
         
     - name: Run java checkstyle
       uses: nikitasavinov/checkstyle-action@0.6.0
+      with:
+        level: warning
