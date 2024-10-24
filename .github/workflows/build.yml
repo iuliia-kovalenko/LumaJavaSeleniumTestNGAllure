@@ -37,9 +37,12 @@ jobs:
         distribution: 'corretto'
         cache: maven
 
-    - name: Install Firefox (for Ubuntu)
+    - name: Install Firefox and geckodriver (for Ubuntu)
       if: matrix.os == 'ubuntu-latest'
-      run: sudo apt-get update && sudo apt-get install -y firefox
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y firefox
+        sudo apt-get install -y firefox-geckodriver
 
     - name: Install Firefox (for Windows)
       if: matrix.os == 'windows-latest'
