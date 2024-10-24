@@ -37,6 +37,18 @@ jobs:
         distribution: 'corretto'
         cache: maven
 
+    - name: Install Firefox (for Ubuntu)
+      if: matrix.os == 'ubuntu-latest'
+      run: sudo apt-get install -y firefox
+
+    - name: Install Firefox (for Windows)
+      if: matrix.os == 'windows-latest'
+      run: choco install firefox
+
+    - name: Install Firefox (for macOS)
+      if: matrix.os == 'macos-latest'
+      run: brew install --cask firefox
+
     - name: Cache m2 dependencies
       uses: actions/cache@v4
       with:
