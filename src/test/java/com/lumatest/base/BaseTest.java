@@ -30,7 +30,7 @@ public abstract class BaseTest {
     @Parameters("browser")
     @BeforeMethod()
     protected void setupDriver(@Optional("chrome") String browser, ITestResult result) {
-        Reporter.log("______________________________________________________", true);
+//        Reporter.log("______________________________________________________________________", true);
         Reporter.log("RUN " + result.getMethod().getMethodName(), true);
 
         this.driver = DriverUtils.createDriver(browser, this.driver);
