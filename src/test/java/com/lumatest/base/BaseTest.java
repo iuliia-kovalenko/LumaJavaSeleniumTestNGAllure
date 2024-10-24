@@ -47,7 +47,11 @@ public abstract class BaseTest {
     @Parameters("browser")
     @AfterMethod(alwaysRun = true)
     protected void tearDown(@Optional("chrome") String browser, ITestResult result) {
-        Reporter.log(result.getMethod().getMethodName() + ": " + ReportUtils.getTestStatus(result), true);
+        if (result.getStatus() == ITestResult.FAILURE) {
+            Reporter.log("ERROR: Test failed - " + result.getMethod().getMethodName(), true);
+        } else {
+            Reporter.log(result.getMethod().getMethodName() + ": " + ReportUtils.getTestStatus(result), true);
+        }
         if (this.driver != null) {
             getDriver().quit();
             Reporter.log("INFO: " + browser.toUpperCase() + " driver closed.", true);
