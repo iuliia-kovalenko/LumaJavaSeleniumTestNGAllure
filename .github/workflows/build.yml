@@ -37,17 +37,6 @@ jobs:
         distribution: 'corretto'
         cache: maven
 
-    - name: Install Firefox and geckodriver (for Ubuntu)
-      if: matrix.os == 'ubuntu-latest'
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y firefox
-        sudo apt-get install -y firefox-geckodriver
-
-    - name: Install Firefox (for Windows)
-      if: matrix.os == 'windows-latest'
-      run: choco install firefox
-
     - name: Install Firefox (for macOS)
       if: matrix.os == 'macos-latest'
       run: brew install --cask firefox
@@ -71,8 +60,14 @@ jobs:
       if: ${{ matrix.os == 'windows-latest' }}
       run: mvn -B package --file pom.xml '-Dmaven.test.skip=true'
 
-    - name: Run test with Maven
-      run: mvn test
+    - name: Run tests with Maven
+      run: |
+        if [[ "${{ matrix.os }}" == "ubuntu-latest" ]]; then
+          mvn test -DskipTests=false -Dbrowser=chrome
+        elif [[ "${{ matrix.os }}" == "windows-latest" || "${{ matrix.os }}" == "macos-latest" ]]; then
+          mvn test -DskipTests=false -Dbrowser=chrome
+          mvn test -DskipTests=false -Dbrowser=firefox
+        fi
 
     - name: Dorny Test Reporter
       uses: dorny/test-reporter@v1.9.1
