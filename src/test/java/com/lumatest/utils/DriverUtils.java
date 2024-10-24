@@ -22,9 +22,6 @@ public class DriverUtils {
         chromeOptions.addArguments("--disable-gpu");
         chromeOptions.addArguments("--no-sandbox");
         chromeOptions.addArguments("--disable-dev-shm-usage");
-        chromeOptions.addArguments("--disable-web-security");
-        chromeOptions.addArguments("--allow-running-insecure-content");
-        chromeOptions.addArguments("--ignore-certificate-errors");
 
         fireFoxOptions = new FirefoxOptions();
 
@@ -34,9 +31,6 @@ public class DriverUtils {
         fireFoxOptions.addArguments("--disable-gpu");
         fireFoxOptions.addArguments("--no-sandbox");
         fireFoxOptions.addArguments("--disable-dev-shm-usage");
-        fireFoxOptions.addArguments("--disable-web-security");
-        fireFoxOptions.addArguments("--allow-running-insecure-content");
-        fireFoxOptions.addArguments("--ignore-certificate-errors");
 
     }
 
