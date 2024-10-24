@@ -62,12 +62,12 @@ jobs:
 
     - name: Run tests based on OS
       run: |
-        if (${{ matrix.os }} -eq 'ubuntu-latest') {
+        if [ "${{ matrix.os }}" == "ubuntu-latest" ]; then
           mvn test -DskipTests=false -Dbrowser=chrome
-        } elseif (${{ matrix.os }} -eq 'windows-latest' -or ${{ matrix.os }} -eq 'macos-latest') {
+        elif [ "${{ matrix.os }}" == "windows-latest" ] || [ "${{ matrix.os }}" == "macos-latest" ]; then
           mvn test -DskipTests=false -Dbrowser=chrome
           mvn test -DskipTests=false -Dbrowser=firefox
-        }
+        fi
 
     - name: Dorny Test Reporter
       uses: dorny/test-reporter@v1.9.1
