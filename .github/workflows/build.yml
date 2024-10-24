@@ -60,14 +60,21 @@ jobs:
       if: ${{ matrix.os == 'windows-latest' }}
       run: mvn -B package --file pom.xml '-Dmaven.test.skip=true'
 
-    - name: Run tests based on OS
+    - name: Run tests with Maven on Ubuntu
+      if: ${{ matrix.os == 'ubuntu-latest' }}
+      run: mvn test -DskipTests=false -Dbrowser=chrome
+
+    - name: Run tests with Maven on Windows
+      if: ${{ matrix.os == 'windows-latest' }}
       run: |
-        if [ "${{ matrix.os }}" == "ubuntu-latest" ]; then
-          mvn test -DskipTests=false -Dbrowser=chrome
-        elif [ "${{ matrix.os }}" == "windows-latest" ] || [ "${{ matrix.os }}" == "macos-latest" ]; then
-          mvn test -DskipTests=false -Dbrowser=chrome
-          mvn test -DskipTests=false -Dbrowser=firefox
-        fi
+        mvn test -DskipTests=false -Dbrowser=chrome
+        mvn test -DskipTests=false -Dbrowser=firefox
+
+    - name: Run tests with Maven on macOS
+      if: ${{ matrix.os == 'macos-latest' }}
+      run: |
+        mvn test -DskipTests=false -Dbrowser=chrome
+        mvn test -DskipTests=false -Dbrowser=firefox
 
     - name: Dorny Test Reporter
       uses: dorny/test-reporter@v1.9.1
