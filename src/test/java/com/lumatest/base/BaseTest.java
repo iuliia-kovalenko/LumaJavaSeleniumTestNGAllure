@@ -31,7 +31,7 @@ public abstract class BaseTest {
     @BeforeMethod()
     protected void setupDriver(@Optional("chrome") String browser, ITestResult result) {
         Reporter.log("______________________________________________________________________");
-        Reporter.log("RUN " + result.getMethod().getMethodName(), true);
+        Reporter.log("RUN " + result.getMethod().getMethodName(), false);
 
         this.driver = DriverUtils.createDriver(browser, this.driver);
 
@@ -47,14 +47,14 @@ public abstract class BaseTest {
     @Parameters("browser")
     @AfterMethod(alwaysRun = true)
     protected void tearDown(@Optional("chrome") String browser, ITestResult result) {
-        Reporter.log(result.getMethod().getMethodName() + ": " + ReportUtils.getTestStatus(result), true);
+        Reporter.log(result.getMethod().getMethodName() + ": " + ReportUtils.getTestStatus(result), false);
         if (this.driver != null) {
             getDriver().quit();
             Reporter.log("INFO: " + browser.toUpperCase() + " driver closed.");
 
             this.driver = null;
         } else {
-            Reporter.log("INFO: Driver is null.", true);
+            Reporter.log("INFO: Driver is null.", false);
         }
     }
 
