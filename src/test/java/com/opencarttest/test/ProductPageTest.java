@@ -4,14 +4,21 @@ import com.opencarttest.base.BaseTest;
 import com.opencarttest.data.TestData;
 import com.opencarttest.model.HomePage;
 import io.qameta.allure.Allure;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
 import org.testng.Assert;
-import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 
 import java.util.List;
 
 public class ProductPageTest extends BaseTest {
-    @Test
+    @Test(
+            groups = {"Smoke", "Regression"},
+            description = "Verify product name"
+    )
+    @Story("Product page")
+    @Severity(SeverityLevel.NORMAL)
     public void testAppleCinemaName() {
         Allure.step("Open Base URL");
         getDriver().get(TestData.BASE_URL);
@@ -26,7 +33,12 @@ public class ProductPageTest extends BaseTest {
         Assert.assertEquals(actualProductName, TestData.APPLE_CINEMA_NAME);
     }
 
-    @Test
+    @Test(
+            groups = {"Regression"},
+            description = "Verify breadcrumbs"
+    )
+    @Story("Product page")
+    @Severity(SeverityLevel.MINOR)
     public void testAppleCinemaPath() {
         Allure.step("Open Base URL");
         getDriver().get(TestData.BASE_URL);
@@ -37,11 +49,16 @@ public class ProductPageTest extends BaseTest {
                 .clickProductImg(TestData.APPLE_CINEMA_ID)
                 .getBreadcrumbText();
 
-        Allure.step("Verify actual "+ actualBreadCrumb + " equals to " + TestData.APPLE_CINEMA_BREADCRUMBS);
+        Allure.step("Verify actual " + actualBreadCrumb + " equals to " + TestData.APPLE_CINEMA_BREADCRUMBS);
         Assert.assertEquals(actualBreadCrumb, TestData.APPLE_CINEMA_BREADCRUMBS);
     }
 
-    @Test
+    @Test(
+            groups = {"Smoke", "Regression"},
+            description = "Verify redirection to brand page"
+    )
+    @Story("Product page")
+    @Severity(SeverityLevel.CRITICAL)
     public void testRedirectionToBrand() {
         Allure.step("Open Base URL");
         getDriver().get(TestData.BASE_URL);
@@ -53,11 +70,16 @@ public class ProductPageTest extends BaseTest {
                 .clickBrandLink(TestData.APPLE_BRAND)
                 .getCurrentURL();
 
-        Allure.step("Verify actual " + actualBrandLink +  " equals to " + TestData.BASE_URL + "/index.php?route=product/manufacturer/info&manufacturer_id=8");
+        Allure.step("Verify actual " + actualBrandLink + " equals to " + TestData.BASE_URL + "/index.php?route=product/manufacturer/info&manufacturer_id=8");
         Assert.assertEquals(actualBrandLink, TestData.BASE_URL + "/index.php?route=product/manufacturer/info&manufacturer_id=8");
     }
 
-    @Test
+    @Test(
+            groups = {"Smoke", "Regression"},
+            description = "Verify required fields in adding to shopping cart"
+    )
+    @Story("Product page")
+    @Severity(SeverityLevel.CRITICAL)
     public void testRequiredFields() {
         final List<String> expectedRequiredFields = List.of("Radio required!", "Checkbox required!",
                 "Select required!", "Textarea required!", "File required!");
@@ -76,7 +98,12 @@ public class ProductPageTest extends BaseTest {
 
     }
 
-    @Test
+    @Test(
+            groups = {"Smoke", "Regression"},
+            description = "Verify alert message while adding item to wishlist by unauthorised user"
+    )
+    @Story("Product page")
+    @Severity(SeverityLevel.NORMAL)
     public void testAddWishListAlert() {
         getDriver().get(TestData.BASE_URL);
         String actualAlertMessage = new HomePage(getDriver())
@@ -87,8 +114,7 @@ public class ProductPageTest extends BaseTest {
                 .clickWishlistButton()
                 .getWishlistAlertMessage();
 
-        Allure.step("Verify actual " + actualAlertMessage + "equals to " + TestData.APPLE_CINEMA_ALERT_MESSAGE);
+        Allure.step("Verify actual " + actualAlertMessage + " equals to " + TestData.APPLE_CINEMA_ALERT_MESSAGE);
         Assert.assertEquals(actualAlertMessage, TestData.APPLE_CINEMA_ALERT_MESSAGE);
-
     }
 }
