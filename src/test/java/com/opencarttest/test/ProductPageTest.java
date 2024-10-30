@@ -22,7 +22,7 @@ public class ProductPageTest extends BaseTest {
                 .clickProductImg(TestData.APPLE_CINEMA_ID)
                 .getProductName();
 
-        Allure.step("Verify actual {actualProductName} equals to {TestData.APPLE_CINEMA_NAME}");
+        Allure.step("Verify actual " + actualProductName + " equals to " + TestData.APPLE_CINEMA_NAME);
         Assert.assertEquals(actualProductName, TestData.APPLE_CINEMA_NAME);
     }
 
@@ -37,7 +37,7 @@ public class ProductPageTest extends BaseTest {
                 .clickProductImg(TestData.APPLE_CINEMA_ID)
                 .getBreadcrumbText();
 
-        Allure.step("Verify actual {actualBreadCrumb} equals to {TestData.APPLE_CINEMA_BREADCRUMBS}");
+        Allure.step("Verify actual "+ actualBreadCrumb + " equals to " + TestData.APPLE_CINEMA_BREADCRUMBS);
         Assert.assertEquals(actualBreadCrumb, TestData.APPLE_CINEMA_BREADCRUMBS);
     }
 
@@ -53,7 +53,7 @@ public class ProductPageTest extends BaseTest {
                 .clickBrandLink(TestData.APPLE_BRAND)
                 .getCurrentURL();
 
-        Allure.step("Verify actual {actualBrandLink} equals to {TestData.BASE_URL + \"/index.php?route=product/manufacturer/info&manufacturer_id=8\"}");
+        Allure.step("Verify actual " + actualBrandLink +  " equals to " + TestData.BASE_URL + "/index.php?route=product/manufacturer/info&manufacturer_id=8");
         Assert.assertEquals(actualBrandLink, TestData.BASE_URL + "/index.php?route=product/manufacturer/info&manufacturer_id=8");
     }
 
@@ -72,7 +72,7 @@ public class ProductPageTest extends BaseTest {
                 .clickAddToCartButton()
                 .getRequiredFields();
 
-        Allure.step("Verify actual " + actualRequiredFields + "equals to " + expectedRequiredFields);
+        Allure.step("Verify actual " + actualRequiredFields + " equals to " + expectedRequiredFields);
         Assert.assertEquals(actualRequiredFields, expectedRequiredFields);
 
     }
