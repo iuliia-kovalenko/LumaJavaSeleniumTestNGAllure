@@ -1,4 +1,4 @@
-package com.lumatest.utils;
+package com.opencarttest.utils;
 
 import org.testng.ITestResult;
 

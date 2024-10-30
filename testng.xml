@@ -4,7 +4,8 @@
     <test name="ChromeTest" verbose="2">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="com.lumatest.test.NavigationTest"/>
+            <class name="com.opencarttest.test.NavigationTest"/>
+            <class name="com.opencarttest.test.ProductPageTest"/>
             <class name="FrameworkTest"/>
         </classes>
     </test>
@@ -12,7 +13,8 @@
     <test name="FirefoxTest" verbose="2">
         <parameter name="browser" value="firefox"/>
         <classes>
-            <class name="com.lumatest.test.NavigationTest"/>
+            <class name="com.opencarttest.test.NavigationTest"/>
+            <class name="com.opencarttest.test.ProductPageTest"/>
             <class name="FrameworkTest"/>
         </classes>
     </test>

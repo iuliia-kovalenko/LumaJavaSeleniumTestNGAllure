@@ -1,7 +1,7 @@
-package com.lumatest.base;
+package com.opencarttest.base;
 
-import com.lumatest.utils.DriverUtils;
-import com.lumatest.utils.ReportUtils;
+import com.opencarttest.utils.DriverUtils;
+import com.opencarttest.utils.ReportUtils;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -58,7 +58,7 @@ public abstract class BaseTest {
         }
     }
 
-    public WebDriver getDriver() {
+    protected WebDriver getDriver() {
         return this.driver;
     }
 
