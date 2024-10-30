@@ -1,10 +1,8 @@
-package com.lumatest.base;
+package com.opencarttest.base;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-
-import javax.swing.*;
 
 public class TestUtils {
 

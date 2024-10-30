@@ -1,4 +1,4 @@
-package com.lumatest.data;
+package com.opencarttest.data;
 
 import org.openqa.selenium.By;
 import org.testng.annotations.DataProvider;
@@ -88,6 +88,16 @@ public class TestData {
                 {BASE_URL, DESKTOP_MENU, MAC_MENU, MAC_URL, MAC_TITLE}
         };
     }
+
+    // Products Pages
+    public static final String APPLE_CINEMA_ID = "42";
+    public static final String APPLE_BRAND = "Apple";
+    public static final String APPLE_CINEMA_NAME = "Apple Cinema 30\"";
+    public static final String APPLE_CINEMA_BREADCRUMBS = "Components Monitors Apple Cinema 30\"";
+    public static final String APPLE_CINEMA_ALERT_MESSAGE = "You must login or create an account to save Apple Cinema 30\" to your wish list!\n×";
+
+
+
 
 
 }

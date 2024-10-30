@@ -1,8 +1,8 @@
-package com.lumatest.test;
+package com.opencarttest.test;
 
-import com.lumatest.base.BaseTest;
-import com.lumatest.base.TestUtils;
-import com.lumatest.data.TestData;
+import com.opencarttest.base.BaseTest;
+import com.opencarttest.base.TestUtils;
+import com.opencarttest.data.TestData;
 import io.qameta.allure.*;
 import org.openqa.selenium.By;
 import org.testng.Assert;
@@ -27,15 +27,15 @@ public class NavigationTest extends BaseTest {
         Allure.step("Open Base URL");
         getDriver().get(TestData.BASE_URL);
 
-        Allure.step("Collect actualURL");
+        Allure.step("Collect actual URL");
         final String actualURL = getDriver().getCurrentUrl();
 
-        Allure.step("Collect actualURL");
+        Allure.step("Collect actual Title");
         final String actualTitle = getDriver().getTitle();
 
-        Allure.step("Verify actualURL as expected");
+        Allure.step("Verify actual URL as expected");
         Assert.assertEquals(actualURL, expectedURL);
-        Allure.step("Verify actualTitle as expected");
+        Allure.step("Verify actual Title as expected");
         Assert.assertEquals(actualTitle, expectedTitle);
     }
 
@@ -59,14 +59,15 @@ public class NavigationTest extends BaseTest {
         Allure.step("Click on dropDown element");
         getDriver().findElement(navBarDropdownMenu).click();
 
-        Allure.step("Collect actualURL");
+        Allure.step("Collect actual URL");
         final String actualURL = getDriver().getCurrentUrl();
-        Allure.step("Collect actualURL");
+
+        Allure.step("Collect actual Title");
         final String actualTitle = getDriver().getTitle();
 
-        Allure.step("Verify actualURL as expected");
+        Allure.step("Verify actual URL as expected");
         Assert.assertEquals(actualURL, expectedURL);
-        Allure.step("Verify actualTitle as expected");
+        Allure.step("Verify actual Title as expected");
         Assert.assertEquals(actualTitle, expectedTitle);
     }
 
@@ -87,14 +88,14 @@ public class NavigationTest extends BaseTest {
         Allure.step("Click on dropDown element");
         getDriver().findElement(navBarMenu).click();
 
-        Allure.step("Collect actualURL");
+        Allure.step("Collect actual URL");
         final String actualURL = getDriver().getCurrentUrl();
-        Allure.step("Collect actualURL");
+        Allure.step("Collect actual Title");
         final String actualTitle = getDriver().getTitle();
 
-        Allure.step("Verify actualURL as expected");
+        Allure.step("Verify actual URL as expected");
         Assert.assertEquals(actualURL, expectedURL);
-        Allure.step("Verify actualTitle as expected");
+        Allure.step("Verify actual Title as expected");
         Assert.assertEquals(actualTitle, expectedTitle);
     }
 
