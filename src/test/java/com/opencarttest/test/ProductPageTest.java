@@ -57,7 +57,6 @@ public class ProductPageTest extends BaseTest {
         Assert.assertEquals(actualBrandLink, TestData.BASE_URL + "/index.php?route=product/manufacturer/info&manufacturer_id=8");
     }
 
-    @Ignore
     @Test
     public void testRequiredFields() {
         final List<String> expectedRequiredFields = List.of("Radio required!", "Checkbox required!",
