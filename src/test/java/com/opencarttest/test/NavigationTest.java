@@ -3,7 +3,12 @@ package com.opencarttest.test;
 import com.opencarttest.base.BaseTest;
 import com.opencarttest.base.TestUtils;
 import com.opencarttest.data.TestData;
-import io.qameta.allure.*;
+import io.qameta.allure.Allure;
+import io.qameta.allure.Story;
+import io.qameta.allure.Description;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Link;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -12,7 +17,7 @@ public class NavigationTest extends BaseTest {
 
     @Test(
             description = "TC-01 Open Base URL",
-            groups = {"Smoke", "Regression"},
+            groups = {"smoke", "regression"},
             testName = "NAVIGATION |Open Base URL"
     )
     @Story("Navigation")
@@ -40,7 +45,7 @@ public class NavigationTest extends BaseTest {
     }
 
     @Test(
-            groups = {"Smoke", "Regression"},
+            groups = {"smoke", "regression"},
             description = "TC-02 Verify that all tabs with dropdown menu of Navigation menu work correctly as expected",
             dataProvider = "navigationDataDropDown", dataProviderClass = TestData.class,
             testName = "NAVIGATION |Open Menu with dropdown"
@@ -72,7 +77,7 @@ public class NavigationTest extends BaseTest {
     }
 
     @Test(
-            groups = {"Smoke", "Regression"},
+            groups = {"smoke", "regression"},
             description = "TC-03 Verify that all tabs without dropdown menu work correctly as expected",
             dataProvider = "navigationData", dataProviderClass = TestData.class,
             testName = "NAVIGATION |Open Menu without dropdown"
@@ -100,7 +105,7 @@ public class NavigationTest extends BaseTest {
     }
 
     @Test(
-            groups = {"Smoke", "Regression"},
+            groups = {"smoke", "regression"},
             description = "TC-04 Verify that all tabs of Desktop dropdown menu work correctly as expected",
             dataProvider = "navigationDesktop", dataProviderClass = TestData.class,
             testName = "NAVIGATION |Open Desktop subMenu"

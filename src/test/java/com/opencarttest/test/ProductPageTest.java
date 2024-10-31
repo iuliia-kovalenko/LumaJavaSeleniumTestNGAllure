@@ -14,7 +14,7 @@ import java.util.List;
 
 public class ProductPageTest extends BaseTest {
     @Test(
-            groups = {"Smoke", "Regression"},
+            groups = {"regression"},
             description = "Verify product name"
     )
     @Story("Product page")
@@ -34,7 +34,7 @@ public class ProductPageTest extends BaseTest {
     }
 
     @Test(
-            groups = {"Regression"},
+            groups = {"regression"},
             description = "Verify breadcrumbs"
     )
     @Story("Product page")
@@ -54,7 +54,7 @@ public class ProductPageTest extends BaseTest {
     }
 
     @Test(
-            groups = {"Smoke", "Regression"},
+            groups = {"smoke", "regression"},
             description = "Verify redirection to brand page"
     )
     @Story("Product page")
@@ -75,7 +75,7 @@ public class ProductPageTest extends BaseTest {
     }
 
     @Test(
-            groups = {"Smoke", "Regression"},
+            groups = {"smoke", "regression"},
             description = "Verify required fields in adding to shopping cart"
     )
     @Story("Product page")
@@ -99,7 +99,7 @@ public class ProductPageTest extends BaseTest {
     }
 
     @Test(
-            groups = {"Smoke", "Regression"},
+            groups = {"regression"},
             description = "Verify alert message while adding item to wishlist by unauthorised user"
     )
     @Story("Product page")
