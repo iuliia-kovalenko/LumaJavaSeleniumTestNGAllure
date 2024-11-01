@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="CrossBrowser Test Suite" thread-count="4" parallel="tests" data-provider-thread-count="4">
-    <test name="ChromeTest" verbose="2">
-        <parameter name="browser" value="chrome"/>
-        <classes>
-            <class name="com.opencarttest.test.NavigationTest"/>
-            <class name="com.opencarttest.test.ProductPageTest"/>
-            <class name="FrameworkTest"/>
-        </classes>
-    </test>
-
+<suite name="FireFox Browser Test Suite" thread-count="4" parallel="methods" data-provider-thread-count="4">
     <test name="FirefoxTest" verbose="2">
         <parameter name="browser" value="firefox"/>
         <classes>
@@ -18,6 +9,5 @@
             <class name="FrameworkTest"/>
         </classes>
     </test>
-
 </suite>
 

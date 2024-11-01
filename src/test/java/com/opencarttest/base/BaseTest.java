@@ -22,7 +22,6 @@ public abstract class BaseTest {
     private final ThreadLocal<WebDriver> threadLocalDriver = new ThreadLocal<>();
 
 
-
     @BeforeSuite
     protected void setupWebDriverManager() {
         WebDriverManager.chromedriver().setup();
@@ -34,11 +33,11 @@ public abstract class BaseTest {
     }
 
     @Parameters("browser")
-    @BeforeMethod()
+    @BeforeMethod(alwaysRun = true)
     protected void setupDriver(@Optional("chrome") String browser, ITestContext context, ITestResult result) {
         Reporter.log("______________________________________________________________________", true);
 
-        this.driver = DriverUtils.createDriver(browser, this.driver);
+        this.driver = DriverUtils.createDriver(browser);
         this.threadLocalDriver.set(this.driver);
 
         Reporter.log("Test Thread ID: " + Thread.currentThread().getId(), true);
@@ -59,14 +58,14 @@ public abstract class BaseTest {
     protected void tearDown(@Optional("chrome") String browser, ITestResult result) {
         Reporter.log(result.getMethod().getMethodName() + ": " + ReportUtils.getTestStatus(result), true);
 
-        if (this.driver != null) {
+        if (getDriver() != null) {
             getDriver().quit();
             Reporter.log("INFO: " + browser.toUpperCase() + " driver closed.");
 
             Reporter.log("After Test Thread ID: " + Thread.currentThread().getId(), true);
             threadLocalDriver.remove();
 
-            this.driver = null;
+            driver = null;
         } else {
             Reporter.log("INFO: Driver is null.", true);
         }

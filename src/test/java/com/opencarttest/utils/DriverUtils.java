@@ -34,40 +34,40 @@ public class DriverUtils {
 
     }
 
-    private static WebDriver createChromeDriver(WebDriver driver) {
-        if (driver != null) {
-            driver.quit();
-        }
-
-        ChromeDriver chromeDriver = new ChromeDriver(chromeOptions);
-        chromeDriver.executeCdpCommand("Network.enable", Map.of());
-        chromeDriver.executeCdpCommand("Network.setExtraHTTPHeaders", Map.of("headers", Map.of("accept-language", "en-US,en;q=0.9")));
-
-        return chromeDriver;
-    }
-
-    private static WebDriver createFirefoxDriver(WebDriver driver) {
-        if (driver != null) {
-            driver.quit();
-        }
-        FirefoxDriver firefoxDriver = new FirefoxDriver(fireFoxOptions);
-
-        return firefoxDriver;
-    }
-
-    public static WebDriver createDriver(String browser, WebDriver driver) {
-        switch (browser) {
-            case "chrome" -> {
-                return createChromeDriver(driver);
-            }
-            case "firefox" -> {
-                return createFirefoxDriver(driver);
-            }
-            default -> {
-                return null;
-            }
-        }
-    }
+//    private static WebDriver createChromeDriver(WebDriver driver) {
+//        if (driver != null) {
+//            driver.quit();
+//        }
+//
+//        ChromeDriver chromeDriver = new ChromeDriver(chromeOptions);
+//        chromeDriver.executeCdpCommand("Network.enable", Map.of());
+//        chromeDriver.executeCdpCommand("Network.setExtraHTTPHeaders", Map.of("headers", Map.of("accept-language", "en-US,en;q=0.9")));
+//
+//        return chromeDriver;
+//    }
+//
+//    private static WebDriver createFirefoxDriver(WebDriver driver) {
+//        if (driver != null) {
+//            driver.quit();
+//        }
+//        FirefoxDriver firefoxDriver = new FirefoxDriver(fireFoxOptions);
+//
+//        return firefoxDriver;
+//    }
+//
+//    public static WebDriver createDriver(String browser, WebDriver driver) {
+//        switch (browser) {
+//            case "chrome" -> {
+//                return createChromeDriver(driver);
+//            }
+//            case "firefox" -> {
+//                return createFirefoxDriver(driver);
+//            }
+//            default -> {
+//                return null;
+//        }
+//        }
+//    }
 
 
 // For OpenCart site
@@ -79,6 +79,13 @@ public class DriverUtils {
 //                return new ChromeDriver(chromeOptions);
 //            }
 //        }
+public static WebDriver createDriver(String browser) {
+    return switch (browser.toLowerCase()) {
+        case "chrome" -> new ChromeDriver(chromeOptions);
+        case "firefox" -> new FirefoxDriver(fireFoxOptions);
+        default -> throw new IllegalArgumentException("Unknown browser: " + browser);
+    };
+}
 
 
 }
