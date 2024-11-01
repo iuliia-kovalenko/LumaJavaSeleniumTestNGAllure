@@ -6,18 +6,18 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 abstract class SideMenu extends TopMenu {
-    protected SideMenu(WebDriver driver) {
-        super(driver);
-    }
+  protected SideMenu(WebDriver driver) {
+    super(driver);
+  }
 
 
-    @FindBy(xpath = "//aside[@id='column-left']//a[contains(text(), 'Monitors')]")
-    private WebElement monitorsSideMenu;
+  @FindBy(xpath = "//aside[@id='column-left']//a[contains(text(), 'Monitors')]")
+  private WebElement monitorsSideMenu;
 
-    @Step("Click Monitors on left-side Menu")
-    public ProductPage clickMonitorsSideMenu() {
-        monitorsSideMenu.click();
+  @Step("Click Monitors on left-side Menu")
+  public ProductPage clickMonitorsSideMenu() {
+    monitorsSideMenu.click();
 
-        return new ProductPage(getDriver());
-    }
+    return new ProductPage(getDriver());
+  }
 }

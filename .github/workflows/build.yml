@@ -54,7 +54,7 @@ jobs:
 
     - name: Build with Maven for Ubuntu and macOS
       if: ${{ matrix.os == 'ubuntu-latest' || matrix.os == 'macos-latest' }}
-      run: mvn -B package --file pom.xml -Dmaven.test.skip=true
+      run: mvn clean -e install -Dmaven.test.skip=true
 
     - name: Build with Maven for Windows
       if: ${{ matrix.os == 'windows-latest' }}
@@ -95,18 +95,18 @@ jobs:
         publish_branch: gh-pages
         publish_dir: allure-history
 
-#  check-java-code-style:
-#    name: Check Java Code Style
-#
-#    runs-on: ubuntu-latest
-#
-#    steps:
-#    - name: Clone code from repo
-#      uses: actions/checkout@v4
-#      with:
-#        fetch-depth: 0
-#
-#    - name: Run java checkstyle
-#      uses: nikitasavinov/checkstyle-action@0.6.0
-#      with:
-#        level: warning
+  check-java-code-style:
+    name: Check Java Code Style
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clone code from repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Run java checkstyle
+        uses: nikitasavinov/checkstyle-action@0.6.0
+        with:
+          level: warning
