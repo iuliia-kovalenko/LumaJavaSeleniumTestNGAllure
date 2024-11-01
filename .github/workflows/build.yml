@@ -67,6 +67,11 @@ jobs:
     - name: Run test with Maven
       run: mvn test
 
+    - name: Check Allure results
+      run: |
+          echo "Contents of allure-results:"
+          ls -la target/allure-results  
+
     - name: Dorny Test Reporter
       uses: dorny/test-reporter@v1.9.1
       if: success() || failure()
