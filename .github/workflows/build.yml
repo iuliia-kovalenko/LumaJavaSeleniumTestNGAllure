@@ -52,13 +52,9 @@ jobs:
 #    - name: Build with Maven
 #      run: mvn -B package --file pom.xml -Dmaven.test.skip=true
 
-    - name: Build with Maven for Ubuntu
-      if: ${{ matrix.os == 'ubuntu-latest' }}
+    - name: Build with Maven for Ubuntu and macOS
+      if: ${{ matrix.os == 'ubuntu-latest' || matrix.os == 'macos-latest' }}
       run: mvn clean -e install -Dmaven.test.skip=true
-
-    - name: Build with Maven for macOS
-      if: ${{ matrix.os == 'macos-latest' }}
-      run: mvn -B package --file pom.xml -Dmaven.test.skip=true
 
     - name: Build with Maven for Windows
       if: ${{ matrix.os == 'windows-latest' }}
@@ -66,11 +62,6 @@ jobs:
 
     - name: Run test with Maven
       run: mvn test
-
-    - name: Check Allure results
-      run: |
-          echo "Contents of allure-results:"
-          ls -la target/allure-results  
 
     - name: Dorny Test Reporter
       uses: dorny/test-reporter@v1.9.1
