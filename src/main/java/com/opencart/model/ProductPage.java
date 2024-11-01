@@ -1,4 +1,4 @@
-package com.opencarttest.model;
+package com.opencart.model;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;

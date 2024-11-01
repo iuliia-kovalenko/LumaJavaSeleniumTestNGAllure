@@ -1,4 +1,4 @@
-package com.opencarttest.base;
+package com.opencart.base;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;

@@ -1,7 +1,7 @@
-package com.opencarttest.base;
+package com.opencart.base;
 
-import com.opencarttest.utils.DriverUtils;
-import com.opencarttest.utils.ReportUtils;
+import com.opencart.utils.DriverUtils;
+import com.opencart.utils.ReportUtils;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
