@@ -1,4 +1,4 @@
-package com.opencarttest.model;
+package com.opencart.model;
 
 import org.openqa.selenium.WebDriver;
 

@@ -10,16 +10,16 @@
     <test name="Regression Test Run on Chrome" verbose="10">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="com.opencarttest.test.NavigationTest"/>
-            <class name="com.opencarttest.test.ProductPageTest"/>
+            <class name="com.opencart.test.NavigationTest"/>
+            <class name="com.opencart.test.ProductPageTest"/>
         </classes>
     </test>
 
     <test name="Regression Test Run on FireFox" verbose="10">
         <parameter name="browser" value="firefox"/>
         <classes>
-            <class name="com.opencarttest.test.NavigationTest"/>
-            <class name="com.opencarttest.test.ProductPageTest"/>
+            <class name="com.opencart.test.NavigationTest"/>
+            <class name="com.opencart.test.ProductPageTest"/>
         </classes>
     </test>
 </suite>

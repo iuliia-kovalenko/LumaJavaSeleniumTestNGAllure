@@ -1,8 +1,8 @@
-package com.opencarttest.test;
+package com.opencart.test;
 
-import com.opencarttest.base.BaseTest;
-import com.opencarttest.data.TestData;
-import com.opencarttest.model.HomePage;
+import com.opencart.base.BaseTest;
+import com.opencart.data.TestData;
+import com.opencart.model.HomePage;
 import io.qameta.allure.Allure;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;

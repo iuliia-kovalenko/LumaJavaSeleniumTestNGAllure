@@ -1,4 +1,4 @@
-package com.opencarttest.utils;
+package com.opencart.utils;
 
 import org.testng.ITestResult;
 
