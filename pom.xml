@@ -75,8 +75,6 @@
                         <suiteXmlFile>xmlSuits/crossBrowser.xml</suiteXmlFile>
                         <suiteXmlFile>xmlSuits/smoke.xml</suiteXmlFile>
                         <suiteXmlFile>xmlSuits/regression.xml</suiteXmlFile>
-<!--                        <suiteXmlFile>testng-chrome.xml</suiteXmlFile>-->
-<!--                        <suiteXmlFile>testng-firefox.xml</suiteXmlFile>-->
                     </suiteXmlFiles>
                 </configuration>
                 <dependencies>
