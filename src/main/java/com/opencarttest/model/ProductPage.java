@@ -11,78 +11,78 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import java.util.List;
 
 public class ProductPage extends SubCategoryPage {
-    @FindBy(tagName = "h1")
-    private WebElement productName;
-    @FindBy(className = "breadcrumb")
-    private WebElement breadcrumb;
+  @FindBy(tagName = "h1")
+  private WebElement productName;
+  @FindBy(className = "breadcrumb")
+  private WebElement breadcrumb;
 
-    @FindBy(xpath = "//li/a[text()='Apple']")
-    private WebElement brandLink;
+  @FindBy(xpath = "//li/a[text()='Apple']")
+  private WebElement brandLink;
 
-    @FindBy(id = "button-cart")
-    private WebElement addToCartButton;
+  @FindBy(id = "button-cart")
+  private WebElement addToCartButton;
 
 
-    @FindBy(css = ".form-group.required.has-error .text-danger")
-    private List<WebElement> requiredFields;
+  @FindBy(css = ".form-group.required.has-error .text-danger")
+  private List<WebElement> requiredFields;
 
-    @FindBy(xpath = "//button[contains(@onclick, \"wishlist.add('42')\")]")
-    private WebElement wishlistButton;
+  @FindBy(xpath = "//button[contains(@onclick, \"wishlist.add('42')\")]")
+  private WebElement wishlistButton;
 
-    @FindBy(xpath = "//div[contains(text(), 'You must')]")
-    private WebElement wishlistAlert;
+  @FindBy(xpath = "//div[contains(text(), 'You must')]")
+  private WebElement wishlistAlert;
 
-    protected ProductPage(WebDriver driver) {
-        super(driver);
-    }
+  protected ProductPage(WebDriver driver) {
+    super(driver);
+  }
 
-    @Step("Get actual product name")
-    public String getProductName() {
-        return productName.getText();
-    }
+  @Step("Get actual product name")
+  public String getProductName() {
+    return productName.getText();
+  }
 
-    @Step("Get actual breadcrumb text")
-    public String getBreadcrumbText() {
-        return breadcrumb.getText();
-    }
+  @Step("Get actual breadcrumb text")
+  public String getBreadcrumbText() {
+    return breadcrumb.getText();
+  }
 
-    @Step("Click brand {brandName} link.")
-    public BrandPage clickBrandLink(String brandName) {
-        getDriver().findElement(By.xpath("//li/a[text()='" + brandName + "']")).click();
+  @Step("Click brand {brandName} link.")
+  public BrandPage clickBrandLink(String brandName) {
+    getDriver().findElement(By.xpath("//li/a[text()='" + brandName + "']")).click();
 
-        return new BrandPage(getDriver());
-    }
+    return new BrandPage(getDriver());
+  }
 
-    @Step("Get actual list of all required fields.")
-    public List<String> getRequiredFields() {
-        getWait().until(ExpectedConditions.visibilityOfAllElements(requiredFields));
+  @Step("Get actual list of all required fields.")
+  public List<String> getRequiredFields() {
+    getWait().until(ExpectedConditions.visibilityOfAllElements(requiredFields));
 
-        System.out.println(requiredFields.stream().map(WebElement::getText).toList());
-        return requiredFields.stream().map(WebElement::getText).toList();
-    }
+    System.out.println(requiredFields.stream().map(WebElement::getText).toList());
+    return requiredFields.stream().map(WebElement::getText).toList();
+  }
 
-    @Step("Click button Add to Cart.")
-    public ProductPage clickAddToCartButton() {
-        getWait().until(ExpectedConditions.visibilityOf(addToCartButton));
-        ((JavascriptExecutor) getDriver()).executeScript("arguments[0].scrollIntoView(true);", addToCartButton);
+  @Step("Click button Add to Cart.")
+  public ProductPage clickAddToCartButton() {
+    getWait().until(ExpectedConditions.visibilityOf(addToCartButton));
+    ((JavascriptExecutor) getDriver()).executeScript("arguments[0].scrollIntoView(true);", addToCartButton);
 
-        addToCartButton.click();
+    addToCartButton.click();
 
-        return new ProductPage(getDriver());
-    }
+    return new ProductPage(getDriver());
+  }
 
-    @Step("Click button to add to wish list.")
-    public ProductPage clickWishlistButton() {
-        wishlistButton.click();
+  @Step("Click button to add to wish list.")
+  public ProductPage clickWishlistButton() {
+    wishlistButton.click();
 
-        return new ProductPage(getDriver());
-    }
+    return new ProductPage(getDriver());
+  }
 
-    @Step("Get actual alert message.")
-    public String getWishlistAlertMessage() {
-        getWait().until(ExpectedConditions.visibilityOfAllElements(wishlistAlert));
+  @Step("Get actual alert message.")
+  public String getWishlistAlertMessage() {
+    getWait().until(ExpectedConditions.visibilityOfAllElements(wishlistAlert));
 
-        return wishlistAlert.getText();
-    }
+    return wishlistAlert.getText();
+  }
 
 }

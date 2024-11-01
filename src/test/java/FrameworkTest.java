@@ -11,6 +11,6 @@ public class FrameworkTest {
     @Ignore
     @Test
     public void testFail() {
-        Assert.assertTrue(false);
+      Assert.fail();
     }
 }
