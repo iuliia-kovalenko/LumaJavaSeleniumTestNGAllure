@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.io.File;
 import java.util.List;
 
 public class ProductPage extends SubCategoryPage {
@@ -22,7 +23,6 @@ public class ProductPage extends SubCategoryPage {
   @FindBy(id = "button-cart")
   private WebElement addToCartButton;
 
-
   @FindBy(css = ".form-group.required.has-error .text-danger")
   private List<WebElement> requiredFields;
 
@@ -31,6 +31,12 @@ public class ProductPage extends SubCategoryPage {
 
   @FindBy(xpath = "//div[contains(text(), 'You must')]")
   private WebElement wishlistAlert;
+
+  @FindBy(id="button-upload222")
+  private WebElement uploadButton;
+
+  @FindBy(css="#form-upload input[type='file']")
+  private WebElement addFileForm;
 
   protected ProductPage(WebDriver driver) {
     super(driver);
@@ -83,6 +89,22 @@ public class ProductPage extends SubCategoryPage {
     getWait().until(ExpectedConditions.visibilityOfAllElements(wishlistAlert));
 
     return wishlistAlert.getText();
+  }
+
+  @Step("Upload file")
+  public ProductPage uploadFile(String path){
+    File file = new File(path);
+    uploadButton.click();
+    addFileForm.sendKeys(file.getAbsolutePath());
+
+    getWait().until(ExpectedConditions.alertIsPresent());
+
+    return new ProductPage(getDriver());
+  }
+
+  @Step("Get alert message of successful uploading")
+  public String getAlertMessage(){
+    return getDriver().switchTo().alert().getText();
   }
 
 }

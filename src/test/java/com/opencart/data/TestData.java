@@ -96,5 +96,6 @@ public class TestData {
   public static final String APPLE_CINEMA_BREADCRUMBS = "Components Monitors Apple Cinema 30\"";
   public static final String APPLE_CINEMA_ALERT_MESSAGE = "You must login or create an account to save Apple Cinema 30\" to your wish list!\n×";
 
-
+  //File path
+  public static final String PATH_TO_FILE = "src/test/resources/UploadFile.txt";
 }
